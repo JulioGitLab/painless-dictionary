@@ -1,3 +1,28 @@
-<!Doctype html>
+<!DOCTYPE html>
 
-<!-- painless-dictionary -->
+<!-- painless-dictionary
+   
+   A simple, plain, FOSS, English dictionary that provides origin, definitions, synonyms and antonyms
+   of the searched word in a clear and easy to read way.
+   
+   This site uses the https://dictionaryapi.dev/ API-->
+
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Simple, plain English dictionary">
+   <title>Painless Dictionary</title>
+   <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+   <h1>Painless Dictionary</h1>
+
+   <input type="text" id="word" placeholder="Enter a word">
+   <button id="get-def">Define</button>
+   <section id="defs"></section>
+
+   <script src="scripts/script.js"></script>
+</body>
+</html>
