@@ -28,7 +28,10 @@ function printDefs(data) {
    // Removes <p> elements inside defs and error message if exist
    let pDel = defs.querySelectorAll("p");
 
-   for (let i = 0; i <pDel.length; i++) { pDel[i].remove(); }
+   for (let i = 0; i < pDel.length; i++) { pDel[i].remove(); }
+
+   /* // Alt common pattern used to delete all of the contents of a DOM element. Must check
+   while (defs.firstChild) { defs.removeChild(defs.firstChild); } */
 
    defs.innerText = "";
 
