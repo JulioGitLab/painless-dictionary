@@ -1,5 +1,5 @@
 # painless-dictionary
-A simple, plain, FOSS, English dictionary that provides origin, definitions, synonyms and antonyms of the searched word in a clear and easy to read way.
+A simple, plain, FOSS, English dictionary that provides origin, definitions, examples, synonyms and antonyms of the searched word in a clear and easy to read way.
 
 Would you like to give it a try?
 
