@@ -54,3 +54,13 @@ button:active {
 li {
    margin-right: 1.3em;
 }
+footer {
+   color: silver;
+   margin: 2.3em 0 1em;
+   font-size: 0.79em;
+}
+a {
+   color: goldenrod;
+   font-size: 0.89rem;
+   text-decoration: none;
+}
