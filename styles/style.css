@@ -55,12 +55,22 @@ li {
    margin-right: 1.3em;
 }
 footer {
+   position: fixed;
+   right: 0;
+   left: 0;
+   bottom: 0;
    color: silver;
-   margin: 2.3em 0 1em;
+   margin: 2.3em auto;
    font-size: 0.79em;
 }
 a {
    color: goldenrod;
    font-size: 0.89rem;
    text-decoration: none;
+}
+a:visited {
+   color: darkgoldenrod;
+}
+a:hover {
+   color: silver;
 }
