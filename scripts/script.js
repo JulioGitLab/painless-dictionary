@@ -38,8 +38,11 @@ function printDefs(data) {
    // Creates an <h3> to print the searched word
    let searchedWord = document.createElement("h3");
    defs.appendChild(searchedWord);
+   searchedWord.style.margin = "2rem 0 0";
    searchedWord.style.color = "goldenrod";
    searchedWord.style.textTransform = "capitalize";
+   searchedWord.style.fontSize = "2rem";
+   searchedWord.style.textAlign = "left";
    searchedWord.innerText = data[0].word;
    
    // Creates a <p> for each definition
@@ -55,8 +58,7 @@ function printDefs(data) {
          if (d === 0) {
             let syn_ant_p = document.createElement("p");
             defs.appendChild(syn_ant_p);
-            syn_ant_p.style.margin = "1.3em 0 0.5em";
-            syn_ant_p.style.fontSize = "smaller";
+            syn_ant_p.classList.add('syn-ant');
             syn_ant_p.innerText += "Synonyms: " + data[0].meanings[m].synonyms.join(', ') + "\nAntonyms: " + data[0].meanings[m].antonyms.join(', ');
          }
 
@@ -68,7 +70,9 @@ function printDefs(data) {
 
          if (data[0].meanings[m].definitions[d].example !== undefined) {
             par.innerHTML += "<small>e.g., <i>\"" + data[0].meanings[m].definitions[d].example + "\"</i></small><br /><br />";
-         } else if (d !== data[0].meanings[m].definitions.length - 1) { par.innerHTML += "<br />"; }
+         } else {
+            par.innerHTML += (d !== data[0].meanings[m].definitions.length - 1) ? "<small><br /></small>" : "<br />";
+         }
 
          /* if (d === data[0].meanings[m].definitions.length - 1) {
             let syn_ant_p = document.createElement("p");
