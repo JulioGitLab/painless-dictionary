@@ -1,15 +1,16 @@
+const word = document.getElementById("word");
 const defineBtn = document.getElementById("get-def");
 const defs = document.getElementById("defs");
 
-defineBtn.addEventListener("click", async () => {
+const getDefinition =  async () => {
    try {
-      const word = document.getElementById("word").value.toLowerCase();
-      // console.log(word);
+      const w = word.value.toLowerCase();
+      // console.log(w);
 
-      if (word === "") { throw new Error("Please enter a word to get its definition."); }
+      if (w === "") { throw new Error("Please enter a word to get its definition."); }
 
       // const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/Asynchronous`); // for testing
-      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${w}`);
 
       if (!response.ok) {
          throw new Error("Could not get definition.");
@@ -17,12 +18,15 @@ defineBtn.addEventListener("click", async () => {
          const data = await response.json();
 
          printDefs(data);
+
+         word.value = "";
+         word.focus();
       }
    } catch (error) {
       defs.innerText = error;
       // console.error(error);
    }
-})
+};
 
 function printDefs(data) {
    // Removes <p> elements inside defs and error message if exist
@@ -84,3 +88,9 @@ function printDefs(data) {
       }
    }
 }
+
+defineBtn.addEventListener("click", getDefinition);
+
+word.addEventListener("keydown", (e) => {
+   if (e.key === "Enter") getDefinition();
+});
