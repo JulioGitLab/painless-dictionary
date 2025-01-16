@@ -28,7 +28,7 @@ const getDefinition =  async () => {
    }
 };
 
-function printDefs(data) {
+const clearDefs = () => {
    // Removes <p> elements inside defs and error message if exist
    let pDel = defs.querySelectorAll("p");
 
@@ -38,6 +38,10 @@ function printDefs(data) {
    while (defs.firstChild) { defs.removeChild(defs.firstChild); } */
 
    defs.innerText = "";
+};
+
+function printDefs(data) {
+   clearDefs();
 
    // Creates an <h3> to print the searched word
    let searchedWord = document.createElement("h3");
