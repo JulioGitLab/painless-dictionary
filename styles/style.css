@@ -7,12 +7,14 @@ html {
    font-size: 10px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
    box-sizing: inherit;
 }
 
 body {
-   margin: 0;
+   margin: 0 0 11vh;
    padding: 0;
    background-color: black;
    color: whitesmoke;
@@ -74,10 +76,11 @@ button:active {
 /* h3 style set in /scripts/script.js */
 
 ul {
-   padding: 0 7vw 3rem;
+   padding: 0 7vw;
 }
 
-p, li {
+p,
+li {
    line-height: 2rem;
    font-size: 1.5rem;
    text-align: justify;
@@ -94,11 +97,10 @@ p, li {
 } */
 
 footer {
-   position: fixed;
-   right: 0;
-   left: 0;
+   position: absolute;
    bottom: 0;
-   margin: 2.3rem 0;
+   width: 100%;
+   padding: 2vw;
    color: silver;
    font-size: 1.3rem;
 }
@@ -118,6 +120,6 @@ footer {
 #juliogitlab:hover {
    color: gold;
    font-size: 1.3em;
-   letter-spacing: 1px;
+   letter-spacing: 0.3px;
    transition-duration: 350ms;
 }
