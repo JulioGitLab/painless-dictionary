@@ -14,7 +14,7 @@ html {
 }
 
 body {
-   margin: 0 0 11vh;
+   margin: 0 0 5vh;
    padding: 0;
    background-color: black;
    color: whitesmoke;
@@ -23,12 +23,12 @@ body {
 }
 
 h1 {
-   margin: 1.7rem 7vw 3rem;
+   margin: 3.7vw 7vw 5vw;
    border-top: solid thin;
    border-bottom: solid thin;
-   padding: 1.1rem 0 1.3rem;
+   padding: 2vw 0 2.3vw;
    color: goldenrod;
-   font-size: 3.7rem;
+   font-size: max(4.7vw, 2.9rem);
 }
 
 section {
@@ -122,4 +122,27 @@ footer {
    font-size: 1.3em;
    letter-spacing: 0.3px;
    transition-duration: 350ms;
+}
+
+@media (min-width: 600px) {
+   body {
+      margin-bottom: 7.3vh;
+   }
+
+   h1 {
+      margin: 3vw 7vw 4.3vw;
+      padding: 1.7vw 0 1.9vw;
+   }
+}
+
+@media (min-width: 800px) {
+   body {
+      margin-bottom: 9.7vh;
+   }
+
+   h1 {
+      margin: 2vw 7vw 2.9vw;
+      padding: 1vw 0 1.1vw;
+      font-size: 3.7vw;
+   }
 }
