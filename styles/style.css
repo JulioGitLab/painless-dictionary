@@ -38,15 +38,16 @@ section {
 }
 
 input {
-   width: 13rem;
-   height: 3.1rem;
+   width: 11rem;
+   /* height: 3.1rem; */
    margin-right: 0.5rem;
    border: ridge darkgray;
    border-radius: 3px;
-   padding-bottom: 0.1rem;
-   padding-left: 0.5rem;
+   /* padding-bottom: 0.1rem; */
+   padding-left: 0.3rem;
    background-color: whitesmoke;
    color: navy;
+   line-height: 1.7em;
    font-family: 'Teachers', sans-serif;
    font-size: 1.3rem;
 }
@@ -54,11 +55,12 @@ input {
 button {
    border: outset goldenrod;
    border-radius: 3px;
-   padding: 0.3em;
+   /* padding: 0.2em 0.3em; */
    background-color: navy;
    color: goldenrod;
    font-variant: small-caps;
-   font-size: 1.7rem;
+   line-height: 1.7em;
+   font-size: 1.5rem;
    letter-spacing: 0.1rem;
    font-weight: bolder;
 }
@@ -133,6 +135,15 @@ footer {
       margin: 3vw 7vw 4.3vw;
       padding: 1.7vw 0 1.9vw;
    }
+
+   input {
+      width: 13rem;
+      font-size: 1.5rem;
+   }
+
+   button {
+      font-size: 1.7rem;
+   }
 }
 
 @media (min-width: 800px) {
@@ -144,5 +155,9 @@ footer {
       margin: 2vw 7vw 2.9vw;
       padding: 1vw 0 1.1vw;
       font-size: 3.7vw;
+   }
+
+   input {
+      width: 15rem;
    }
 }
