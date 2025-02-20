@@ -1,8 +1,8 @@
 # painless-dictionary
-A simple, plain, FOSS, English dictionary that provides origin, definitions, examples, synonyms and antonyms of the searched word in a clear and easy to read way.
+A simple, plain, FOSS, English dictionary that provides origin, definitions, examples, synonyms and antonyms in a clear and easy to read way.
 
-Would you like to give it a try?
+I'd love for you to try it out!
 
-Just go to https://juliogitlab.github.io/painless-dictionary/ and start using it!
+Just go to https://juliogitlab.github.io/painless-dictionary/ and see how it works!
 
 _This site uses the https://dictionaryapi.dev/ API_
