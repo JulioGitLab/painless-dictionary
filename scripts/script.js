@@ -46,11 +46,12 @@ function printDefs(data) {
    // Creates an <h3> to print the searched word
    let searchedWord = document.createElement("h3");
    defs.appendChild(searchedWord);
-   searchedWord.style.margin = "2rem 0 0";
+   searchedWord.style.margin = "0";
    searchedWord.style.color = "goldenrod";
-   searchedWord.style.textTransform = "capitalize";
-   searchedWord.style.fontSize = "2rem";
    searchedWord.style.textAlign = "left";
+   searchedWord.style.textTransform = "capitalize";
+   searchedWord.style.fontSize = "max(2.3vw, 1.9rem)";
+   searchedWord.style.letterSpacing = "0.1px";
    searchedWord.innerText = data[0].word;
    
    // Creates a <p> for each definition
@@ -77,9 +78,7 @@ function printDefs(data) {
          par.innerHTML += "<small>[" + data[0].meanings[m].partOfSpeech + "]</small> " + data[0].meanings[m].definitions[d].definition + "<br />";
 
          if (data[0].meanings[m].definitions[d].example !== undefined) {
-            par.innerHTML += "<small>e.g., <i>\"" + data[0].meanings[m].definitions[d].example + "\"</i></small><br /><br />";
-         } else {
-            par.innerHTML += (d !== data[0].meanings[m].definitions.length - 1) ? "<small><br /></small>" : "<br />";
+            par.innerHTML += "<small>e.g., <i>\"" + data[0].meanings[m].definitions[d].example + "\"</i>";
          }
 
          /* if (d === data[0].meanings[m].definitions.length - 1) {
