@@ -14,7 +14,7 @@ html {
 }
 
 body {
-   margin: 0 0 5.3vh;
+   margin: 0 0 6.1vh;
    padding: 0;
    background-color: black;
    color: whitesmoke;
@@ -35,7 +35,7 @@ section {
    display: flex;
    justify-content: center;
    align-items: center;
-   margin-bottom: 4.7vw;
+   margin-bottom: 3.7vw;
 }
 
 input {
@@ -96,7 +96,7 @@ small {
 }
 
 .syn-ant {
-   margin: 3vw 0 1.3vw;
+   margin: 2.3vw 0 1.1vw;
    color: #C59112;
    line-height: 1.4em;
    font-size: 1.3rem;
@@ -106,9 +106,10 @@ footer {
    position: absolute;
    bottom: 0;
    width: 100%;
-   padding: 2vw;
-   color: silver;
-   font-size: 1.3rem;
+   padding-bottom: 3.7vw;
+   color: #AAA;
+   font-family: monospace;
+   letter-spacing: 0.2px;
 }
 
 #juliogitlab {
@@ -141,7 +142,7 @@ footer {
    }
 
    section {
-      margin-bottom: 3vw;
+      margin-bottom: 2.3vw;
    }
 
    input {
@@ -156,11 +157,19 @@ footer {
    li {
       margin-bottom: 3vw;
    }
+
+   .syn-ant {
+      margin: 1.7vw 0 0.7vw;
+   }
+
+   footer {
+      padding-bottom: 3vw;
+   }
 }
 
 @media (min-width: 800px) {
    body {
-      margin-bottom: 9.7vh;
+      margin-bottom: 13vh;
    }
 
    h1 {
@@ -194,5 +203,10 @@ footer {
       margin: 1.3vw 0 0.3vw;
       line-height: 1.6em;
       font-size: 1.5rem;
+   }
+
+   footer {
+      padding-bottom: 2vw;
+      font-size: 1.3rem;
    }
 }
