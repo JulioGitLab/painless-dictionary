@@ -1,220 +1,220 @@
 @import url(https://fonts.bunny.net/css?family=teachers:400,400i);
 
 html {
-   box-sizing: border-box;
-   position: relative;
-   min-height: 100%;
-   margin: 0;
-   padding: 0;
-   font-size: 10px;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
 }
 
 *,
 *::before,
 *::after {
-   box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-   margin: 0 0 6.1vh;
-   padding: 0;
-   background-color: black;
-   color: whitesmoke;
-   font-family: 'Teachers', sans-serif;
-   text-align: center;
+  margin: 0 0 6.1vh;
+  padding: 0;
+  background-color: black;
+  text-align: center;
+  color: whitesmoke;
+  font-family: 'Teachers', sans-serif;
 }
 
 h1 {
-   margin: 3.7vw 7vw 5vw;
-   border-top: solid thin;
-   border-bottom: solid thin;
-   padding: 2vw 0 2.3vw;
-   color: goldenrod;
-   font-size: max(4.7vw, 2.9rem);
+  margin: 3.7vw 7vw 5vw;
+  border-top: solid thin;
+  border-bottom: solid thin;
+  padding: 2vw 0 2.3vw;
+  color: goldenrod;
+  font-size: max(4.7vw, 2.9rem);
 }
 
 section {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-bottom: 3.7vw;
+  display: flex;
+  margin-bottom: 3.7vw;
+  justify-content: center;
+  align-items: center;
 }
 
 input {
-   width: 11rem;
-   margin-right: 0.5rem;
-   border: ridge darkgray;
-   border-radius: 3px;
-   padding-left: 0.3rem;
-   background-color: whitesmoke;
-   color: navy;
-   line-height: 1.7em;
-   font-family: 'Teachers', sans-serif;
-   font-size: 1.3rem;
+  width: 11rem;
+  margin-right: 0.5rem;
+  border: ridge darkgray;
+  border-radius: 3px;
+  padding-left: 0.3rem;
+  background-color: whitesmoke;
+  line-height: 1.7em;
+  color: navy;
+  font-family: 'Teachers', sans-serif;
+  font-size: 1.3rem;
 }
 
 button {
-   border: outset goldenrod;
-   border-radius: 3px;
-   background-color: navy;
-   color: goldenrod;
-   font-variant: small-caps;
-   line-height: 1.7em;
-   font-size: 1.5rem;
-   letter-spacing: 0.1rem;
-   font-weight: bolder;
+  border: outset goldenrod;
+  border-radius: 3px;
+  background-color: navy;
+  line-height: 1.7em;
+  color: goldenrod;
+  font-size: 1.5rem;
+  font-variant: small-caps;
+  font-weight: bolder;
+  letter-spacing: 0.1rem;
 }
 
 button:hover {
-   color: navy;
-   background-color: goldenrod;
-   border-color: midnightblue;
+  border-color: midnightblue;
+  background-color: goldenrod;
+  color: navy;
 }
 
 button:active {
-   border-style: inset;
+  border-style: inset;
 }
 
 /* h3 style set in /scripts/script.js */
 
 ul {
-   padding: 0 6.3vw 0 7.1vw;
+  padding: 0 6.3vw 0 7.1vw;
 }
 
 li {
-   margin-bottom: 4.3vw;
+  margin-bottom: 4.3vw;
 }
 
 p,
 li {
-   text-align: justify;
-   line-height: 1.5em;
-   font-size: 1.5rem;
-   letter-spacing: 0.1px;
+  text-align: justify;
+  line-height: 1.5em;
+  font-size: 1.5rem;
+  letter-spacing: 0.1px;
 }
 
 small {
-   color: gainsboro;
+  color: gainsboro;
 }
 
 .syn-ant {
-   margin: 2.3vw 0 1.1vw;
-   color: #C59112;
-   line-height: 1.4em;
-   font-size: 1.3rem;
+  margin: 2.3vw 0 1.1vw;
+  line-height: 1.4em;
+  color: #C59112;
+  font-size: 1.3rem;
 }
 
 footer {
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-   padding-bottom: 3.7vw;
-   color: #AAA;
-   font-family: monospace;
-   letter-spacing: 0.2px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 3.7vw;
+  color: #AAA;
+  font-family: monospace;
+  letter-spacing: 0.2px;
 }
 
 #juliogitlab {
-   color: goldenrod;
-   font-size: 1.1em;
-   font-weight: bold;
-   text-decoration: none;
-   transition-duration: 250ms;
+  color: goldenrod;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  transition-duration: 250ms;
 }
 
 #juliogitlab:visited {
-   color: darkgoldenrod;
+  color: darkgoldenrod;
 }
 
 #juliogitlab:hover {
-   color: gold;
-   font-size: 1.3em;
-   letter-spacing: 0.3px;
-   transition-duration: 350ms;
+  color: gold;
+  font-size: 1.3em;
+  letter-spacing: 0.3px;
+  transition-duration: 350ms;
 }
 
 header,
 main,
 footer {
-   min-width: 320px;
+  min-width: 320px;
 }
 
 @media (min-width: 540px) {
-   body {
-      margin-bottom: 7.3vh;
-   }
+  body {
+    margin-bottom: 7.3vh;
+  }
 
-   h1 {
-      margin: 3vw 7vw 4.3vw;
-      padding: 1.7vw 0 1.9vw;
-   }
+  h1 {
+    margin: 3vw 7vw 4.3vw;
+    padding: 1.7vw 0 1.9vw;
+  }
 
-   section {
-      margin-bottom: 2.3vw;
-   }
+  section {
+    margin-bottom: 2.3vw;
+  }
 
-   input {
-      width: 13rem;
-      font-size: 1.5rem;
-   }
+  input {
+    width: 13rem;
+    font-size: 1.5rem;
+  }
 
-   button {
-      font-size: 1.7rem;
-   }
+  button {
+    font-size: 1.7rem;
+  }
 
-   li {
-      margin-bottom: 3vw;
-   }
+  li {
+    margin-bottom: 3vw;
+  }
 
-   .syn-ant {
-      margin: 1.7vw 0 0.7vw;
-   }
+  .syn-ant {
+    margin: 1.7vw 0 0.7vw;
+  }
 
-   footer {
-      padding-bottom: 3vw;
-   }
+  footer {
+    padding-bottom: 3vw;
+  }
 }
 
 @media (min-width: 800px) {
-   body {
-      margin-bottom: 13vh;
-   }
+  body {
+    margin-bottom: 13vh;
+  }
 
-   h1 {
-      margin: 2vw 7vw 2.9vw;
-      padding: 1vw 0 1.1vw;
-      font-size: 3.7vw;
-   }
+  h1 {
+    margin: 2vw 7vw 2.9vw;
+    padding: 1vw 0 1.1vw;
+    font-size: 3.7vw;
+  }
 
-   section {
-      margin-bottom: 1.7vw;
-   }
+  section {
+    margin-bottom: 1.7vw;
+  }
 
-   input {
-      width: 15rem;
-   }
+  input {
+    width: 15rem;
+  }
 
-   ul {
-      padding: 0 7vw 0 7.9vw;
-   }
+  ul {
+    padding: 0 7vw 0 7.9vw;
+  }
 
-   li {
-      margin-bottom: 1.3vw;
-   }
+  li {
+    margin-bottom: 1.3vw;
+  }
 
-   p,
-   li {
-      font-size: 1.7rem;
-   }
+  p,
+  li {
+    font-size: 1.7rem;
+  }
 
-   .syn-ant {
-      margin: 1.3vw 0 0.3vw;
-      line-height: 1.6em;
-      font-size: 1.5rem;
-   }
+  .syn-ant {
+    margin: 1.3vw 0 0.3vw;
+    line-height: 1.6em;
+    font-size: 1.5rem;
+  }
 
-   footer {
-      padding-bottom: 2vw;
-      font-size: 1.3rem;
-   }
+  footer {
+    padding-bottom: 2vw;
+    font-size: 1.3rem;
+  }
 }
