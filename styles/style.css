@@ -40,6 +40,7 @@ section {
   display: flex;
   margin-bottom: 3.7vw;
   justify-content: center;
+  align-items: center;
   gap: 5px;
 }
 
@@ -58,7 +59,7 @@ input {
 button {
   border: outset goldenrod;
   border-radius: 3px;
-  padding: 0 3px;
+  padding: 0 3px 1px;
   background-color: navy;
   line-height: 1.7em;
   color: goldenrod;
@@ -82,7 +83,7 @@ button:active {
 /* h3 style set in /scripts/script.js */
 
 ul {
-  padding: 0 6.3vw 0 7.1vw;
+  padding: 0 6.1vw 0 6.7vw;
 }
 
 li {
@@ -149,7 +150,7 @@ body {
   }
 
   section {
-    margin-bottom: 2.3vw;
+    margin-bottom: 2vw;
   }
 
   input {
@@ -162,35 +163,43 @@ body {
   }
 
   li {
-    margin-bottom: 3vw;
+    margin-bottom: 2vw;
   }
 
   .syn-ant {
-    margin: 1.7vw 0 0.7vw;
+    margin: 1.3vw 0 0.5vw;
+  }
+
+  footer {
+    height: 60px;
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 940px) and (min-height: 600px) {
   h1 {
-    margin: 2vw 7vw 2.9vw;
-    padding: 1vw 0 1.1vw;
+    margin: 1.3vw 7vw 2.3vw;
+    padding: 0.7vw 0 1vw;
     font-size: 3.7vw;
   }
 
   section {
-    margin-bottom: 1.7vw;
+    margin-bottom: 1.3vw;
+    gap: 7px;
   }
 
   input {
-    width: 15rem;
+    width: 17rem;
+    font-size: 1.7rem;
   }
 
   button {
+    padding: 0 5px 1px;
+    font-size: 2rem;
     letter-spacing: 1px;
   }
 
   ul {
-    padding: 0 7vw 0 7.9vw;
+    padding: 0 7.3vw 0 7.9vw;
   }
 
   li {
@@ -200,15 +209,16 @@ body {
   p,
   li {
     font-size: 1.7rem;
+    letter-spacing: 0.3px;
   }
 
   .syn-ant {
-    margin: 1.3vw 0 0.3vw;
-    line-height: 1.6em;
+    margin: 1vw 0 0.3vw;
     font-size: 1.5rem;
   }
 
   footer {
+    height: 70px;
     font-size: 1.3rem;
   }
 }
