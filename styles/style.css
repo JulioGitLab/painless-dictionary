@@ -112,6 +112,7 @@ footer {
   color: #AAA;
   font-family: monospace;
   letter-spacing: 0.2px;
+  animation: jump 3s infinite;
 }
 
 #juliogitlab {
@@ -216,5 +217,31 @@ footer {
   footer {
     padding-bottom: 2vw;
     font-size: 1.3rem;
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+
+  5% {
+    transform: translateY(-5px);
+    animation-timing-function: ease-out;
+  }
+
+  10% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+
+  15% {
+    transform: translateY(-5px);
+    animation-timing-function: ease-out;
+  }
+
+  20% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
   }
 }
