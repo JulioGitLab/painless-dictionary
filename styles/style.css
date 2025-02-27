@@ -1,27 +1,30 @@
 @import url(https://fonts.bunny.net/css?family=teachers:400,400i);
 
-html {
-  box-sizing: border-box;
-  position: relative;
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
-  font-size: 10px;
-}
-
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
 }
 
 body {
-  margin: 0 0 6.1vh;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: black;
+  align-items: center;
   text-align: center;
   color: whitesmoke;
   font-family: 'Teachers', sans-serif;
+}
+
+header {
+  width: 100%;
 }
 
 h1 {
@@ -30,22 +33,21 @@ h1 {
   border-bottom: solid thin;
   padding: 2vw 0 2.3vw;
   color: goldenrod;
-  font-size: max(4.7vw, 2.9rem);
+  font-size: 2.9rem;
 }
 
 section {
   display: flex;
   margin-bottom: 3.7vw;
   justify-content: center;
-  align-items: center;
+  gap: 5px;
 }
 
 input {
   width: 11rem;
-  margin-right: 0.5rem;
   border: ridge darkgray;
   border-radius: 3px;
-  padding-left: 0.3rem;
+  padding-left: 3px;
   background-color: whitesmoke;
   line-height: 1.7em;
   color: navy;
@@ -56,13 +58,15 @@ input {
 button {
   border: outset goldenrod;
   border-radius: 3px;
+  padding: 0 3px;
   background-color: navy;
   line-height: 1.7em;
   color: goldenrod;
   font-size: 1.5rem;
   font-variant: small-caps;
-  font-weight: bolder;
-  letter-spacing: 0.1rem;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+  transition: 150ms ease-out;
 }
 
 button:hover {
@@ -82,7 +86,7 @@ ul {
 }
 
 li {
-  margin-bottom: 4.3vw;
+  margin-bottom: 3.7vw;
 }
 
 p,
@@ -90,7 +94,7 @@ li {
   text-align: justify;
   line-height: 1.5em;
   font-size: 1.5rem;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.2px;
 }
 
 small {
@@ -99,16 +103,15 @@ small {
 
 .syn-ant {
   margin: 2.3vw 0 1.1vw;
-  line-height: 1.4em;
+  line-height: 1.3em;
   color: #C59112;
   font-size: 1.3rem;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding-bottom: 3.7vw;
+  height: 50px;
+  margin-top: auto;
+  align-content: center;
   color: #AAA;
   font-family: monospace;
   letter-spacing: 0.2px;
@@ -120,7 +123,7 @@ footer {
   font-size: 1.1em;
   font-weight: bold;
   text-decoration: none;
-  transition-duration: 250ms;
+  transition: 250ms ease-out;
 }
 
 #juliogitlab:visited {
@@ -134,20 +137,15 @@ footer {
   transition-duration: 350ms;
 }
 
-header,
-main,
-footer {
+body {
   min-width: 320px;
 }
 
 @media (min-width: 540px) {
-  body {
-    margin-bottom: 7.3vh;
-  }
-
   h1 {
-    margin: 3vw 7vw 4.3vw;
-    padding: 1.7vw 0 1.9vw;
+    margin: 2vw 7vw 3vw;
+    padding: 1.1vw 0 1.3vw;
+    font-size: 3.1rem;
   }
 
   section {
@@ -170,17 +168,9 @@ footer {
   .syn-ant {
     margin: 1.7vw 0 0.7vw;
   }
-
-  footer {
-    padding-bottom: 3vw;
-  }
 }
 
 @media (min-width: 800px) {
-  body {
-    margin-bottom: 13vh;
-  }
-
   h1 {
     margin: 2vw 7vw 2.9vw;
     padding: 1vw 0 1.1vw;
@@ -193,6 +183,10 @@ footer {
 
   input {
     width: 15rem;
+  }
+
+  button {
+    letter-spacing: 1px;
   }
 
   ul {
@@ -215,7 +209,6 @@ footer {
   }
 
   footer {
-    padding-bottom: 2vw;
     font-size: 1.3rem;
   }
 }
