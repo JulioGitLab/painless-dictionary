@@ -2,15 +2,18 @@ const wordInput = document.getElementById("word");
 const defineBtn = document.getElementById("get-def");
 const defsContainer = document.getElementById("defs");
 
+// Retrieves the text input, prepares it and fetches the definition
 const getDefinition = async () => {
    try {
       const word = wordInput.value.toLowerCase().trim();
 
-      if (word === "") { throw new Error("Please enter a word to get its definition."); }
+      // Checks if the input is empty ("")
+      if (!word) throw new Error("Please enter a word to get its definition.");
 
-      // const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/Asynchronous`); // for testing
+      // Fetches the definition from the API
       const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
 
+      // Checks if the request was successful
       if (!response.ok) {
          throw new Error(`Could not get definition (status code: ${response.status})`);
       } else {
@@ -23,12 +26,11 @@ const getDefinition = async () => {
       }
    } catch (error) {
       defsContainer.innerText = error;
-      // console.error(error);
    }
 };
 
+// Clears previous definitions and error messages
 const clearDefinitions = () => {
-   // Removes <p> elements inside defs and error message if exist
    let pDel = defsContainer.querySelectorAll("p");
 
    for (let i = 0; i < pDel.length; i++) { pDel[i].remove(); }
@@ -39,6 +41,7 @@ const clearDefinitions = () => {
    defsContainer.innerText = "";
 };
 
+// Prints the definitions in the DOM
 function printDefinitions(data) {
    clearDefinitions();
 
@@ -59,9 +62,10 @@ function printDefinitions(data) {
    // searchedWord.style.letterSpacing = "0.2px";
    defsContainer.appendChild(searchedWord);
 
-   // Creates a <p> for each definition
+   // Loops through the definitions
    for (let m = 0; m < data[0].meanings.length; m++) {
       for (let d = 0; d < data[0].meanings[m].definitions.length; d++) {
+         // Displays origin if available and if it's the first definition
          if (m === 0 && d === 0 && data[0].origin !== undefined) {
             let originP = document.createElement("p");
             defsContainer.appendChild(originP);
@@ -69,6 +73,7 @@ function printDefinitions(data) {
             originP.innerText = "Origin: " + data[0].origin;
          }
 
+         // Displays synonyms and antonyms
          if (d === 0) {
             let pSynAnt = document.createElement("p");
             defsContainer.appendChild(pSynAnt);
@@ -76,29 +81,20 @@ function printDefinitions(data) {
             pSynAnt.innerText += "Synonyms: " + data[0].meanings[m].synonyms.join(', ') + "\nAntonyms: " + data[0].meanings[m].antonyms.join(', ');
          }
 
-         let listItem = document.createElement("li");
-
+         // Displays definitions
+         const listItem = document.createElement("li");
          defsContainer.appendChild(listItem);
-
          listItem.innerHTML += "<small>[" + data[0].meanings[m].partOfSpeech + "]</small> " + data[0].meanings[m].definitions[d].definition + "<br />";
-
+         // Adds example if available
          if (data[0].meanings[m].definitions[d].example !== undefined) {
             listItem.innerHTML += "<small>e.g., <i>\"" + data[0].meanings[m].definitions[d].example + "\"</i>";
          }
-
-         /* if (d === data[0].meanings[m].definitions.length - 1) {
-            let pSynAnt = document.createElement("p");
-            defsContainer.appendChild(pSynAnt);
-            // pSynAnt.style.margin = "0.7em 1em";
-            // pSynAnt.style.fontSize = "smaller";
-            pSynAnt.innerText += "Synonyms: " + data[0].meanings[m].synonyms.join(', ') + "\nAntonyms: " + data[0].meanings[m].antonyms.join(', ');
-         } */
       }
    }
 }
 
+// Event listeners for "DEFINE" button click and Enter key press
 defineBtn.addEventListener("click", getDefinition);
-
 wordInput.addEventListener("keydown", (e) => {
    if (e.key === "Enter") getDefinition();
 });
