@@ -4,6 +4,8 @@ const defsContainer = document.getElementById("defs");
 
 // Retrieves the text input, prepares it and fetches the definition
 const getDefinition = async () => {
+   clearDefinitions();
+   
    try {
       const word = wordInput.value.toLowerCase().trim();
 
@@ -15,7 +17,15 @@ const getDefinition = async () => {
 
       // Checks if the request was successful
       if (!response.ok) {
-         throw new Error(`Could not get definition (status code: ${response.status})`);
+         switch (response.status) {
+            case 404:
+               const errorData = await response.json();
+               throw new Error(errorData.message);
+               break;
+            default:
+               throw new Error(`Could not get definition (status code: ${response.status})`);
+               break;
+         }
       }
 
       const data = await response.json();
@@ -23,13 +33,20 @@ const getDefinition = async () => {
       printDefinitions(data);
       resetInput();
    } catch (error) {
-      defsContainer.innerText = error;
+      displayError(error.message);
    }
 };
 
 // Clears previous definitions and error messages
 const clearDefinitions = () => {
    defsContainer.innerHTML = "";
+};
+
+// Prints error message
+const displayError = (errorMessage) => {
+   const pError = document.createElement("p");
+   pError.innerText = errorMessage;
+   defsContainer.appendChild(pError);
 };
 
 // Resets the input field
@@ -40,8 +57,6 @@ const resetInput = () => {
 
 // Prints the definitions in the DOM
 const printDefinitions = (data) => {
-   clearDefinitions();
-
    // Creates an <h3> and prints the searched word
    const searchedWord = document.createElement("h3");
    searchedWord.innerText = data[0].word;
@@ -90,8 +105,9 @@ const printDefinitions = (data) => {
    }
 }
 
-// Event listeners for "DEFINE" button click and Enter key press
+// Event listeners for "DEFINE" button and input field
 defineBtn.addEventListener("click", getDefinition);
+
 wordInput.addEventListener("keydown", (e) => {
    if (e.key === "Enter") getDefinition();
 });
