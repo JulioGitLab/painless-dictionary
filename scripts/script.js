@@ -29,14 +29,7 @@ const getDefinition = async () => {
 
 // Clears previous definitions and error messages
 const clearDefinitions = () => {
-   let pDel = defsContainer.querySelectorAll("p");
-
-   for (let i = 0; i < pDel.length; i++) { pDel[i].remove(); }
-
-   /* // Alt common pattern used to delete all of the contents of a DOM element. Must check
-   while (defsContainer.firstChild) { defsContainer.removeChild(defsContainer.firstChild); } */
-
-   defsContainer.innerText = "";
+   defsContainer.innerHTML = "";
 };
 
 // Resets the input field
