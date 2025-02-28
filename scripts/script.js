@@ -20,9 +20,7 @@ const getDefinition = async () => {
          const data = await response.json();
 
          printDefinitions(data);
-
-         wordInput.value = "";
-         wordInput.focus();
+         resetInput();
       }
    } catch (error) {
       defsContainer.innerText = error;
@@ -39,6 +37,12 @@ const clearDefinitions = () => {
    while (defsContainer.firstChild) { defsContainer.removeChild(defsContainer.firstChild); } */
 
    defsContainer.innerText = "";
+};
+
+// Resets the input field
+const resetInput = () => {
+   wordInput.value = "";
+   wordInput.focus();
 };
 
 // Prints the definitions in the DOM
