@@ -1,51 +1,50 @@
-const word = document.getElementById("word");
+const wordInput = document.getElementById("word");
 const defineBtn = document.getElementById("get-def");
-const defs = document.getElementById("defs");
+const defsContainer = document.getElementById("defs");
 
 const getDefinition = async () => {
    try {
-      const w = word.value.toLowerCase().trim();
-      // console.log(w);
+      const word = wordInput.value.toLowerCase().trim();
 
-      if (w === "") { throw new Error("Please enter a word to get its definition."); }
+      if (word === "") { throw new Error("Please enter a word to get its definition."); }
 
       // const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/Asynchronous`); // for testing
-      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${w}`);
+      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
 
       if (!response.ok) {
          throw new Error(`Could not get definition (status code: ${response.status})`);
       } else {
          const data = await response.json();
 
-         printDefs(data);
+         printDefinitions(data);
 
-         word.value = "";
-         word.focus();
+         wordInput.value = "";
+         wordInput.focus();
       }
    } catch (error) {
-      defs.innerText = error;
+      defsContainer.innerText = error;
       // console.error(error);
    }
 };
 
-const clearDefs = () => {
+const clearDefinitions = () => {
    // Removes <p> elements inside defs and error message if exist
-   let pDel = defs.querySelectorAll("p");
+   let pDel = defsContainer.querySelectorAll("p");
 
    for (let i = 0; i < pDel.length; i++) { pDel[i].remove(); }
 
    /* // Alt common pattern used to delete all of the contents of a DOM element. Must check
-   while (defs.firstChild) { defs.removeChild(defs.firstChild); } */
+   while (defsContainer.firstChild) { defsContainer.removeChild(defsContainer.firstChild); } */
 
-   defs.innerText = "";
+   defsContainer.innerText = "";
 };
 
-function printDefs(data) {
-   clearDefs();
+function printDefinitions(data) {
+   clearDefinitions();
 
    // Creates an <h3> to print the searched word
    let searchedWord = document.createElement("h3");
-   defs.appendChild(searchedWord);
+   defsContainer.appendChild(searchedWord);
    searchedWord.style.margin = "0";
    searchedWord.style.color = "goldenrod";
    searchedWord.style.textAlign = "left";
@@ -59,34 +58,34 @@ function printDefs(data) {
       for (let d = 0; d < data[0].meanings[m].definitions.length; d++) {
          if (m === 0 && d === 0 && data[0].origin !== undefined) {
             let originP = document.createElement("p");
-            defs.appendChild(originP);
+            defsContainer.appendChild(originP);
             // originP.style.fontSize = "larger";
             originP.innerText = "Origin: " + data[0].origin;
          }
 
          if (d === 0) {
-            let syn_ant_p = document.createElement("p");
-            defs.appendChild(syn_ant_p);
-            syn_ant_p.classList.add('syn-ant');
-            syn_ant_p.innerText += "Synonyms: " + data[0].meanings[m].synonyms.join(', ') + "\nAntonyms: " + data[0].meanings[m].antonyms.join(', ');
+            let pSynAnt = document.createElement("p");
+            defsContainer.appendChild(pSynAnt);
+            pSynAnt.classList.add('syn-ant');
+            pSynAnt.innerText += "Synonyms: " + data[0].meanings[m].synonyms.join(', ') + "\nAntonyms: " + data[0].meanings[m].antonyms.join(', ');
          }
 
-         let par = document.createElement("li");
+         let listItem = document.createElement("li");
 
-         defs.appendChild(par);
+         defsContainer.appendChild(listItem);
 
-         par.innerHTML += "<small>[" + data[0].meanings[m].partOfSpeech + "]</small> " + data[0].meanings[m].definitions[d].definition + "<br />";
+         listItem.innerHTML += "<small>[" + data[0].meanings[m].partOfSpeech + "]</small> " + data[0].meanings[m].definitions[d].definition + "<br />";
 
          if (data[0].meanings[m].definitions[d].example !== undefined) {
-            par.innerHTML += "<small>e.g., <i>\"" + data[0].meanings[m].definitions[d].example + "\"</i>";
+            listItem.innerHTML += "<small>e.g., <i>\"" + data[0].meanings[m].definitions[d].example + "\"</i>";
          }
 
          /* if (d === data[0].meanings[m].definitions.length - 1) {
-            let syn_ant_p = document.createElement("p");
-            defs.appendChild(syn_ant_p);
-            // syn_ant_p.style.margin = "0.7em 1em";
-            // syn_ant_p.style.fontSize = "smaller";
-            syn_ant_p.innerText += "Synonyms: " + data[0].meanings[m].synonyms.join(', ') + "\nAntonyms: " + data[0].meanings[m].antonyms.join(', ');
+            let pSynAnt = document.createElement("p");
+            defsContainer.appendChild(pSynAnt);
+            // pSynAnt.style.margin = "0.7em 1em";
+            // pSynAnt.style.fontSize = "smaller";
+            pSynAnt.innerText += "Synonyms: " + data[0].meanings[m].synonyms.join(', ') + "\nAntonyms: " + data[0].meanings[m].antonyms.join(', ');
          } */
       }
    }
@@ -94,6 +93,6 @@ function printDefs(data) {
 
 defineBtn.addEventListener("click", getDefinition);
 
-word.addEventListener("keydown", (e) => {
+wordInput.addEventListener("keydown", (e) => {
    if (e.key === "Enter") getDefinition();
 });
