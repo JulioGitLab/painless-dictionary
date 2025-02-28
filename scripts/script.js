@@ -16,12 +16,12 @@ const getDefinition = async () => {
       // Checks if the request was successful
       if (!response.ok) {
          throw new Error(`Could not get definition (status code: ${response.status})`);
-      } else {
-         const data = await response.json();
-
-         printDefinitions(data);
-         resetInput();
       }
+
+      const data = await response.json();
+
+      printDefinitions(data);
+      resetInput();
    } catch (error) {
       defsContainer.innerText = error;
    }
