@@ -39,7 +39,7 @@ const resetInput = () => {
 };
 
 // Prints the definitions in the DOM
-function printDefinitions(data) {
+const printDefinitions = (data) => {
    clearDefinitions();
 
    // Creates an <h3> and prints the searched word
@@ -64,28 +64,28 @@ function printDefinitions(data) {
       for (let d = 0; d < data[0].meanings[m].definitions.length; d++) {
          // Displays origin if available and if it's the first definition
          if (m === 0 && d === 0 && data[0].origin !== undefined) {
-            let originP = document.createElement("p");
-            defsContainer.appendChild(originP);
+            const originP = document.createElement("p");
             // originP.style.fontSize = "larger";
-            originP.innerText = "Origin: " + data[0].origin;
+            originP.innerText = `Origin: ${data[0].origin}`;
+            defsContainer.appendChild(originP);
          }
 
          // Displays synonyms and antonyms
          if (d === 0) {
-            let pSynAnt = document.createElement("p");
-            defsContainer.appendChild(pSynAnt);
+            const pSynAnt = document.createElement("p");
             pSynAnt.classList.add('syn-ant');
-            pSynAnt.innerText += "Synonyms: " + data[0].meanings[m].synonyms.join(', ') + "\nAntonyms: " + data[0].meanings[m].antonyms.join(', ');
+            pSynAnt.innerText = `Synonyms: ${data[0].meanings[m].synonyms.join(', ')}\nAntonyms: ${data[0].meanings[m].antonyms.join(', ')}`;
+            defsContainer.appendChild(pSynAnt);
          }
 
          // Displays definitions
          const listItem = document.createElement("li");
-         defsContainer.appendChild(listItem);
-         listItem.innerHTML += "<small>[" + data[0].meanings[m].partOfSpeech + "]</small> " + data[0].meanings[m].definitions[d].definition + "<br />";
+         listItem.innerHTML = `<small>[${data[0].meanings[m].partOfSpeech}]</small> ${data[0].meanings[m].definitions[d].definition}<br />`;
          // Adds example if available
          if (data[0].meanings[m].definitions[d].example !== undefined) {
-            listItem.innerHTML += "<small>e.g., <i>\"" + data[0].meanings[m].definitions[d].example + "\"</i>";
+            listItem.innerHTML += `<small>e.g., <i>"${data[0].meanings[m].definitions[d].example}"</i></small>`;
          }
+         defsContainer.appendChild(listItem);
       }
    }
 }
