@@ -42,16 +42,22 @@ const clearDefinitions = () => {
 function printDefinitions(data) {
    clearDefinitions();
 
-   // Creates an <h3> to print the searched word
-   let searchedWord = document.createElement("h3");
-   defsContainer.appendChild(searchedWord);
-   searchedWord.style.margin = "0";
-   searchedWord.style.color = "goldenrod";
-   searchedWord.style.textAlign = "left";
-   searchedWord.style.textTransform = "capitalize";
-   searchedWord.style.fontSize = "max(2.3vw, 1.9rem)";
-   searchedWord.style.letterSpacing = "0.1px";
+   // Creates an <h3> and prints the searched word
+   const searchedWord = document.createElement("h3");
    searchedWord.innerText = data[0].word;
+   searchedWord.style.cssText = `
+      text-align: left;
+      text-transform: capitalize;
+      color: goldenrod;
+      font-size: max(2.3vw, 1.9rem);
+      letter-spacing: 0.2px;
+   `;
+   // searchedWord.style.textAlign = "left";
+   // searchedWord.style.textTransform = "capitalize";
+   // searchedWord.style.color = "goldenrod";
+   // searchedWord.style.fontSize = "max(2.3vw, 1.9rem)";
+   // searchedWord.style.letterSpacing = "0.2px";
+   defsContainer.appendChild(searchedWord);
 
    // Creates a <p> for each definition
    for (let m = 0; m < data[0].meanings.length; m++) {
