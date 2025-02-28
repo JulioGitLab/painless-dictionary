@@ -2,9 +2,9 @@ const word = document.getElementById("word");
 const defineBtn = document.getElementById("get-def");
 const defs = document.getElementById("defs");
 
-const getDefinition =  async () => {
+const getDefinition = async () => {
    try {
-      const w = word.value.toLowerCase();
+      const w = word.value.toLowerCase().trim();
       // console.log(w);
 
       if (w === "") { throw new Error("Please enter a word to get its definition."); }
@@ -13,7 +13,7 @@ const getDefinition =  async () => {
       const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${w}`);
 
       if (!response.ok) {
-         throw new Error("Could not get definition.");
+         throw new Error(`Could not get definition (status code: ${response.status})`);
       } else {
          const data = await response.json();
 
@@ -53,7 +53,7 @@ function printDefs(data) {
    searchedWord.style.fontSize = "max(2.3vw, 1.9rem)";
    searchedWord.style.letterSpacing = "0.1px";
    searchedWord.innerText = data[0].word;
-   
+
    // Creates a <p> for each definition
    for (let m = 0; m < data[0].meanings.length; m++) {
       for (let d = 0; d < data[0].meanings[m].definitions.length; d++) {
