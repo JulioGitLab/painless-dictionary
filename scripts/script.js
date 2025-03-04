@@ -5,7 +5,7 @@ const defsContainer = document.getElementById("defs");
 // Retrieves the text input, prepares it and fetches the definition
 const getDefinition = async () => {
    clearDefinitions();
-   
+
    try {
       const word = wordInput.value.toLowerCase().trim();
 
@@ -75,34 +75,34 @@ const printDefinitions = (data) => {
    defsContainer.appendChild(searchedWord);
 
    // Loops through the definitions
-   for (let m = 0; m < data[0].meanings.length; m++) {
-      for (let d = 0; d < data[0].meanings[m].definitions.length; d++) {
-         // Displays origin if available and if it's the first definition
-         if (m === 0 && d === 0 && data[0].origin !== undefined) {
-            const originP = document.createElement("p");
-            // originP.style.fontSize = "larger";
-            originP.innerText = `Origin: ${data[0].origin}`;
-            defsContainer.appendChild(originP);
-         }
-
-         // Displays synonyms and antonyms
-         if (d === 0) {
-            const pSynAnt = document.createElement("p");
-            pSynAnt.classList.add('syn-ant');
-            pSynAnt.innerText = `Synonyms: ${data[0].meanings[m].synonyms.join(', ')}\nAntonyms: ${data[0].meanings[m].antonyms.join(', ')}`;
-            defsContainer.appendChild(pSynAnt);
-         }
-
-         // Displays definitions
-         const listItem = document.createElement("li");
-         listItem.innerHTML = `<small>[${data[0].meanings[m].partOfSpeech}]</small> ${data[0].meanings[m].definitions[d].definition}<br />`;
-         // Adds example if available
-         if (data[0].meanings[m].definitions[d].example !== undefined) {
-            listItem.innerHTML += `<small>e.g., <i>"${data[0].meanings[m].definitions[d].example}"</i></small>`;
-         }
-         defsContainer.appendChild(listItem);
+   data[0].meanings.forEach((meaning, index) => {
+      // Displays origin if available and if it's the first definition
+      if (index === 0 && data[0].origin) {
+         const originP = document.createElement("p");
+         // originP.style.fontSize = "larger";
+         originP.innerText = `Origin: ${data[0].origin}`;
+         defsContainer.appendChild(originP);
       }
-   }
+
+      // Displays synonyms and antonyms
+      const pSynAnt = document.createElement("p");
+      pSynAnt.classList.add('syn-ant');
+      pSynAnt.innerText = `Synonyms: ${meaning.synonyms.join(', ')}\nAntonyms: ${meaning.antonyms.join(', ')}`;
+      defsContainer.appendChild(pSynAnt);
+
+      // Displays definitions
+      meaning.definitions.forEach((definition) => {
+         const listItem = document.createElement("li");
+         listItem.innerHTML = `<small>[${meaning.partOfSpeech}]</small> ${definition.definition}<br />`;
+
+         // Add example if available
+         if (definition.example) {
+            listItem.innerHTML += `<small>e.g., <i>"${definition.example}"</i></small>`;
+         }
+
+         defsContainer.appendChild(listItem);
+      });
+   });
 }
 
 // Event listeners for "DEFINE" button and input field
