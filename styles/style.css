@@ -20,7 +20,7 @@ body {
   align-items: center;
   text-align: center;
   color: whitesmoke;
-  font-family: 'Teachers', sans-serif;
+  font-family: "Teachers", sans-serif;
 }
 
 header {
@@ -52,7 +52,7 @@ input {
   background-color: whitesmoke;
   line-height: 1.7em;
   color: navy;
-  font-family: 'Teachers', sans-serif;
+  font-family: "Teachers", sans-serif;
   font-size: 1.3rem;
 }
 
@@ -105,7 +105,7 @@ small {
 .syn-ant {
   margin: 2.3vw 0 1.1vw;
   line-height: 1.3em;
-  color: #C59112;
+  color: #c59112;
   font-size: 1.3rem;
 }
 
@@ -113,7 +113,7 @@ footer {
   height: 50px;
   margin-top: auto;
   align-content: center;
-  color: #AAA;
+  color: #aaa;
   font-family: monospace;
   letter-spacing: 0.2px;
   animation: jump 3s infinite;

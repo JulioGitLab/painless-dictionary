@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!-- painless-dictionary
    
    A simple, plain, FOSS, English dictionary that provides origin, definitions, synonyms and antonyms
@@ -8,30 +8,31 @@
    
    This site uses the https://dictionaryapi.dev/ API -->
 <html lang="en">
+  <head>
+    <title>Painless Dictionary</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Simple, plain English dictionary" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Simple, plain English dictionary">
-  <title>Painless Dictionary</title>
-  <link rel="stylesheet" href="styles/style.css">
-</head>
-
-<body>
-  <header>
-    <h1>Painless Dictionary</h1>
-  </header>
-  <main>
-    <section>
-      <input type="text" id="word" placeholder="Enter a word" autofocus spellcheck="true">
-      <button id="get-def">Define</button>
-    </section>
-    <ul id="defs"></ul>
-  </main>
-  <footer>
-    <aside>Created by: <a href="https://juliogitlab.github.io/" target="_blank" id="juliogitlab">JulioGitLab</a></aside>
-  </footer>
-  <script src="scripts/script.js"></script>
-</body>
-
+  <body>
+    <header>
+      <h1>Painless Dictionary</h1>
+    </header>
+    <main>
+      <section>
+        <input type="text" id="word" placeholder="Enter a word" autofocus spellcheck="true" />
+        <button id="get-def">Define</button>
+      </section>
+      <ul id="defs"></ul>
+    </main>
+    <footer>
+      <aside>
+        Created by:
+        <a href="https://juliogitlab.github.io/" target="_blank" id="juliogitlab">JulioGitLab</a>
+      </aside>
+    </footer>
+    <script src="scripts/script.js"></script>
+  </body>
 </html>
