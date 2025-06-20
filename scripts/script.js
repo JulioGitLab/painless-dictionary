@@ -21,9 +21,10 @@ const getDefinition = async () => {
     // Check if the request was successful
     if (!response.ok) {
       switch (response.status) {
-        case 404:
+        case 404: {
           const errorData = await response.json();
           throw new Error(errorData.message);
+        }
         // break;
         default:
           throw new Error(
@@ -93,7 +94,9 @@ const printDefinitions = (data) => {
     const pSynAnt = document.createElement("p");
     pSynAnt.classList.add("syn-ant");
 
-    pSynAnt.innerText = `Synonyms: ${meaning.synonyms.join(", ")}\nAntonyms: ${meaning.antonyms.join(", ")}`;
+    const synonyms = meaning.synonyms.join(", ");
+    const antonyms = meaning.antonyms.join(", ");
+    pSynAnt.innerText = `Synonyms: ${synonyms}\nAntonyms: ${antonyms}`;
 
     defsContainer.appendChild(pSynAnt);
 
@@ -101,11 +104,15 @@ const printDefinitions = (data) => {
     meaning.definitions.forEach((definition) => {
       const listItem = document.createElement("li");
 
-      listItem.innerHTML = `<small>[${meaning.partOfSpeech}]</small> ${definition.definition}<br />`;
+      listItem.innerHTML = `
+        <small>[${meaning.partOfSpeech}]</small> ${definition.definition}
+      `.trim();
 
       // Add example if available
       if (definition.example) {
-        listItem.innerHTML += `<small>e.g., <i>"${definition.example}"</i></small>`;
+        listItem.innerHTML += `
+          <br /><small>e.g., <q>${definition.example}</q></small>
+        `.trim();
       }
 
       defsContainer.appendChild(listItem);
