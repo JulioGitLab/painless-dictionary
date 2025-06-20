@@ -1,0 +1,36 @@
+{
+  "name": "painless-dictionary",
+  "version": "1.0.0",
+  "description": "A simple, plain, FOSS, English dictionary that provides origin, definitions, examples, synonyms and antonyms in a clear and easy to read way.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js,.css,.html,.json,.md",
+    "lint:fix": "eslint . --ext .js,.css,.html,.json,.md --fix",
+    "format": "prettier --write \"**/*.{js,css,html,md}\"",
+    "format:check": "prettier --check \"**/*.{js,css,html,md}\"",
+    "check": "npm run format && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulioGitLab/painless-dictionary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulioGitLab/painless-dictionary/issues"
+  },
+  "homepage": "https://github.com/JulioGitLab/painless-dictionary#readme",
+  "devDependencies": {
+    "@eslint/css": "^0.9.0",
+    "@eslint/js": "^9.29.0",
+    "@eslint/json": "^0.12.0",
+    "@eslint/markdown": "^6.5.0",
+    "@html-eslint/eslint-plugin": "^0.41.0",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "globals": "^16.2.0",
+    "prettier": "^3.5.3"
+  }
+}
