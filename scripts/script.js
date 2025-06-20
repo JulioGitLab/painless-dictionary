@@ -14,7 +14,9 @@ const getDefinition = async () => {
     if (!word) throw new Error("Please enter a word to get its definition.");
 
     // Fetch the definition from the API
-    const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+    const response = await fetch(
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+    );
 
     // Check if the request was successful
     if (!response.ok) {
@@ -22,10 +24,12 @@ const getDefinition = async () => {
         case 404:
           const errorData = await response.json();
           throw new Error(errorData.message);
-          // break;
+        // break;
         default:
-          throw new Error(`Could not get definition (status code: ${response.status})`);
-          // break;
+          throw new Error(
+            `Could not get definition (status code: ${response.status})`
+          );
+        // break;
       }
     }
 
@@ -88,12 +92,15 @@ const printDefinitions = (data) => {
     // Display synonyms and antonyms
     const pSynAnt = document.createElement("p");
     pSynAnt.classList.add("syn-ant");
+
     pSynAnt.innerText = `Synonyms: ${meaning.synonyms.join(", ")}\nAntonyms: ${meaning.antonyms.join(", ")}`;
+
     defsContainer.appendChild(pSynAnt);
 
     // Display definitions
     meaning.definitions.forEach((definition) => {
       const listItem = document.createElement("li");
+
       listItem.innerHTML = `<small>[${meaning.partOfSpeech}]</small> ${definition.definition}<br />`;
 
       // Add example if available
