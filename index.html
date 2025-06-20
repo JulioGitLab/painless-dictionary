@@ -1,11 +1,11 @@
 <!doctype html>
 <!-- painless-dictionary
-   
+
    A simple, plain, FOSS, English dictionary that provides origin, definitions, synonyms and antonyms
    of the searched word in a clear and easy to read way.
 
    Give it a try at https://juliogitlab.github.io/painless-dictionary/
-   
+
    This site uses the https://dictionaryapi.dev/ API -->
 <html lang="en">
   <head>
@@ -22,7 +22,13 @@
     </header>
     <main>
       <section>
-        <input type="text" id="word" placeholder="Enter a word" autofocus spellcheck="true" />
+        <input
+          type="text"
+          id="word"
+          placeholder="Enter a word"
+          autofocus
+          spellcheck="true"
+        />
         <button id="get-def">Define</button>
       </section>
       <ul id="defs"></ul>
@@ -30,7 +36,13 @@
     <footer>
       <aside>
         Created by:
-        <a href="https://juliogitlab.github.io/" target="_blank" id="juliogitlab">JulioGitLab</a>
+        <a
+          href="https://juliogitlab.github.io/"
+          target="_blank"
+          id="juliogitlab"
+        >
+          JulioGitLab
+        </a>
       </aside>
     </footer>
     <script src="scripts/script.js"></script>
