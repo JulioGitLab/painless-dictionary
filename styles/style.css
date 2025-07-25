@@ -116,7 +116,7 @@ footer {
   color: #aaa;
   font-family: monospace;
   letter-spacing: 0.2px;
-  animation: jump 3s infinite;
+  animation: jump 3s ease-in-out infinite;
 }
 
 #juliogitlab {
@@ -224,27 +224,14 @@ body {
 }
 
 @keyframes jump {
-  0% {
-    transform: translateY(0);
-  }
-
-  5% {
-    transform: translateY(-5px);
-    animation-timing-function: ease-out;
-  }
-
-  10% {
-    transform: translateY(0);
-    animation-timing-function: ease-in;
-  }
-
-  15% {
-    transform: translateY(-5px);
-    animation-timing-function: ease-out;
-  }
-
+  0%,
+  10%,
   20% {
     transform: translateY(0);
-    animation-timing-function: ease-in;
+  }
+
+  5%,
+  15% {
+    transform: translateY(-5px);
   }
 }
